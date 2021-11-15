@@ -8,7 +8,7 @@ import {
   BrandType,
   AmountLabel,
 } from "./RecentPaymentsCard.styled";
-import { RecentPaymentProps } from "./RecentPaymentsCard.Type";
+import { RecentPaymentProps, TYPEOFPAYMENT } from "./RecentPaymentsCard.Type";
 
 const RecentPaymentsCard: FC<RecentPaymentProps> = ({
   brandName,
@@ -27,7 +27,12 @@ const RecentPaymentsCard: FC<RecentPaymentProps> = ({
         </BrandNameContainer>
       </BrandContainer>
       <AmountLabel>
-        {status === "SENT" ? "-" : status === "RECEIVED" ? "+" : ""}$ {amount}
+        {status === TYPEOFPAYMENT.SENT
+          ? "-"
+          : status === TYPEOFPAYMENT.RECEIVED
+          ? "+"
+          : ""}
+        $ {amount}
       </AmountLabel>
     </Container>
   );

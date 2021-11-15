@@ -6,3 +6,4 @@ export { default as RecentPaymentsCard } from "./RecentPaymentsCard/RecentPaymen
 export { default as PaymentPendingCard } from "./PaymentPendingCard/PaymentPendingCard";
 export { default as PaymentsModal } from "./modal/PaymentsModal/PaymentsModal";
 export { default as SpecificPaymentModal } from "./modal/SpecificPaymentModal/SpecificPaymentModal";
+export { default as TransactionsContainer } from "./TransactionsContainer/TransactionsContainer";

@@ -6,6 +6,7 @@ export interface BrandsDataProps {
   status: keyof typeof TYPEOFPAYMENT;
   amount: number;
   source: ImageSourcePropType;
+  id: number;
 }
 
 export interface BrandProps {
@@ -13,6 +14,7 @@ export interface BrandProps {
   brandType: string;
   amount: number;
   sourcePosition: number;
+  id: number;
 }
 
 export enum TYPEOFPAYMENT {

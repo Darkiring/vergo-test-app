@@ -1,4 +1,5 @@
 import React, { FC, useEffect, useState } from "react";
+import { TextInput } from "react-native";
 import { usePayments } from "../../../hooks/paymentsHook";
 import { BrandProps } from "../../../hooks/type";
 import { Spacing } from "../../PaymentsContainer/PaymentsContainer.styled";
@@ -8,34 +9,44 @@ import {
   Container,
   HeaderText,
   PayButton,
-  TotalLabel,
+  Paragraph,
 } from "./SpecificPaymentModal.styled";
 import { SpecificPaymentModalProps } from "./SpecificPaymentModal.types";
 
 const SpecificPaymentModal: FC<SpecificPaymentModalProps> = ({
   show,
   onChange,
-  payAll,
-  itemName,
+  itemId,
+  payPending,
+  totalLabel,
+  payLabel,
 }) => {
+  const [itemData, setItemData] = useState<BrandProps>();
   const { pendingPayments } = usePayments();
+
+  const getItemData = () => {
+    const item = pendingPayments.find((item) => item.id === itemId);
+    return item;
+  };
+
   useEffect(() => {
-    const item = pendingPayments.find((item) => item.brandName === itemName);
-    // setItemData();
-    console.log("Data: ", );
-  }, [itemName]);
+    const item = getItemData();
+    setItemData(item);
+  }, [itemId]);
+
+  const payItem = () => {
+    payPending(itemData.id);
+  };
 
   return (
     <Modal show={show} onChange={onChange}>
       <Container>
-        <HeaderText>Data: </HeaderText>
+        <HeaderText>{itemData?.brandName}</HeaderText>
+        <Paragraph>{itemData?.brandType}</Paragraph>
+        <Paragraph>{totalLabel}: {itemData?.amount}</Paragraph>
         <Spacing />
-        <TotalLabel>Amount of payment pending:</TotalLabel>
-        <Spacing />
-        <TotalLabel></TotalLabel>
-        <Spacing />
-        <PayButton onPress={payAll}>
-          <ButtonLabel>PAY ALL</ButtonLabel>
+        <PayButton onPress={payItem}>
+          <ButtonLabel>{payLabel}</ButtonLabel>
         </PayButton>
       </Container>
     </Modal>

@@ -1,5 +1,4 @@
-import React, { FC, useEffect } from "react";
-import { ScrollView, Text } from "react-native";
+import React, { FC } from "react";
 import { usePayments } from "../../../hooks/paymentsHook";
 import { Spacing } from "../../PaymentsContainer/PaymentsContainer.styled";
 import { ButtonLabel } from "../../PendingPaymentsCard/PendingPaymentsCard.styled";
@@ -12,21 +11,31 @@ import {
 } from "./PaymentsModal.styled";
 import { PaymentsModalProps } from "./PaymentsModal.types";
 
-const PaymentsModal: FC<PaymentsModalProps> = ({ show, onChange, payAll }) => {
+const PaymentsModal: FC<PaymentsModalProps> = ({
+  show,
+  onChange,
+  payAll,
+  headerText,
+  amountLabel,
+  totalLabel,
+  payAllLabel,
+}) => {
   const { pendingPayments, totalPending } = usePayments();
   return (
     <Modal show={show} onChange={onChange}>
       <Container>
-        <HeaderText>Pay total of pending payment</HeaderText>
+        <HeaderText>{headerText}</HeaderText>
         <Spacing />
         <TotalLabel>
-          Amount of payment pending: {pendingPayments.length}
+          {amountLabel}: {pendingPayments.length}
         </TotalLabel>
         <Spacing />
-        <TotalLabel>Total: {totalPending}</TotalLabel>
+        <TotalLabel>
+          {totalLabel}: {totalPending}
+        </TotalLabel>
         <Spacing />
         <PayButton onPress={payAll}>
-          <ButtonLabel>PAY ALL</ButtonLabel>
+          <ButtonLabel>{payAllLabel}</ButtonLabel>
         </PayButton>
       </Container>
     </Modal>

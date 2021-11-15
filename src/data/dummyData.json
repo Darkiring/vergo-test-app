@@ -1,46 +1,104 @@
 {
+    "userBalance": "12123.42",
+    "approvedBalance": "40000",
     "paymentsData": [
         {
             "brandName": "American Eagle",
             "brandType": "Clothing Store",
             "status": "RECEIVED",
             "amount": 123.32,
-            "sourcePosition": 0
+            "sourcePosition": 0,
+            "id": 1
         },
         {
             "brandName": "Airbnb",
             "brandType": "Rental",
             "status": "SENT",
             "amount": 213,
-            "sourcePosition": 1
+            "sourcePosition": 1,
+            "id": 2
         },
         {
             "brandName": "American Eagle 2",
             "brandType": "Clothing Store",
             "status": "PENDING",
             "amount": 123.32,
-            "sourcePosition": 0
+            "sourcePosition": 0,
+            "id": 3
         },
         {
             "brandName": "Airbnb 2",
             "brandType": "Rental",
             "status": "PENDING",
             "amount": 213,
-            "sourcePosition": 1
+            "sourcePosition": 1,
+            "id": 4
         },
         {
             "brandName": "American Eagle 3",
             "brandType": "Clothing Store",
             "status": "PENDING",
             "amount": 123.32,
-            "sourcePosition": 0
+            "sourcePosition": 0,
+            "id": 5
         },
         {
             "brandName": "Airbnb 3",
             "brandType": "Rental",
             "status": "PENDING",
             "amount": 213,
-            "sourcePosition": 1
+            "sourcePosition": 1,
+            "id": 6
+        }
+    ],
+    "transactions": [
+        {
+            "brandName": "American Eagle",
+            "brandType": "Clothing Store",
+            "status": "RECEIVED",
+            "amount": 123.32,
+            "sourcePosition": 0,
+            "id": 1
+        },
+        {
+            "brandName": "Airbnb",
+            "brandType": "Rental",
+            "status": "SENT",
+            "amount": 213,
+            "sourcePosition": 1,
+            "id": 2
+        },
+        {
+            "brandName": "American Eagle 2",
+            "brandType": "Clothing Store",
+            "status": "RECEIVED",
+            "amount": 123.32,
+            "sourcePosition": 0,
+            "id": 3
+        },
+        {
+            "brandName": "Airbnb 2",
+            "brandType": "Rental",
+            "status": "SENT",
+            "amount": 213,
+            "sourcePosition": 1,
+            "id": 4
+        },
+        {
+            "brandName": "American Eagle 3",
+            "brandType": "Clothing Store",
+            "status": "RECEIVED",
+            "amount": 123.32,
+            "sourcePosition": 0,
+            "id": 5
+        },
+        {
+            "brandName": "Airbnb 3",
+            "brandType": "Rental",
+            "status": "SENT",
+            "amount": 213,
+            "sourcePosition": 1,
+            "id": 6
         }
     ]
 }

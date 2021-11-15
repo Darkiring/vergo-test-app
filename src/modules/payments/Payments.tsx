@@ -13,50 +13,80 @@ import { usePayments } from "../../hooks/paymentsHook";
 import { navigationHook } from "../../hooks/navigationHook";
 import { TYPEOFPAYMENT } from "./types";
 import { Alert } from "react-native";
+import { formatter } from "../../utils/helper";
 
 const Payments = () => {
-  const [amount, setAmount] = useState("12,123.42");
-  const [balanceLabel, setBalanceLabel] = useState("BALANCE");
-  const [itemName, setItemName] = useState("");
+  const [itemId, setItemId] = useState<number>();
   const [showModal, setShowModal] = useState(false);
   const [showSpecificModal, setShowSpecificModal] = useState(false);
-  const { payments, pendingPayments, payAllPending } = usePayments();
+  const {
+    payments,
+    pendingPayments,
+    payAllPending,
+    accountBalance,
+    totalPending,
+    paySpecificPayment,
+  } = usePayments();
   const { hideTabNavigator } = navigationHook();
+
   const onPressPayment = () => {
-    if (pendingPayments.length > 0) {
+    if (pendingPayments.length > 0 && accountBalance > totalPending) {
       setShowModal(true);
     } else {
-      Alert.alert("Payments", "You have no pending payments");
+      Alert.alert(
+        "Payments",
+        "You do not have pending payments or you do not have enough balance to make the payment"
+      );
     }
   };
-  const onPresPayItem = (brandName: string) => {
-    setItemName(brandName);
+
+  const onPresPayItem = (id: number) => {
+    setItemId(id);
     setTimeout(() => {
       setShowSpecificModal(true);
     });
   };
+
   const onChangeModal = (value: boolean) => {
     setShowModal(value);
   };
+
   const onChangeSpecificModal = (value: boolean) => {
     setShowSpecificModal(value);
   };
+
   const onPressAllPay = () => {
     payAllPending();
     setTimeout(() => {
       setShowModal(false);
-    }, 300);
+    }, 200);
   };
+
+  const payPending = (id: number) => {
+    paySpecificPayment(id);
+    setTimeout(() => {
+      setShowSpecificModal(false);
+    }, 200);
+  };
+
   useEffect(() => {
     hideTabNavigator(!showModal);
   }, [showModal]);
+
   useEffect(() => {
     hideTabNavigator(!showSpecificModal);
   }, [showSpecificModal]);
+
   return (
     <>
       <StyledScroll bounces={false} showsVerticalScrollIndicator={false}>
-        <PaymentsContainer balanceAmount={amount} balanceLabel={balanceLabel}>
+        <PaymentsContainer
+          balanceAmount={formatter.format(accountBalance)}
+          balanceLabel={"BALANCE"}
+          cardNumber="1234567891234567"
+          month="05"
+          year="24"
+        >
           <Spacing />
           <PendingPaymentsCard
             onPressPay={onPressPayment}
@@ -71,7 +101,7 @@ const Payments = () => {
               <PaymentsListText>Pending payments</PaymentsListText>
               <Divider />
               {payments.map(
-                ({ source, brandName, brandType, amount, status }) =>
+                ({ source, brandName, brandType, amount, status, id }) =>
                   status === TYPEOFPAYMENT.PENDING && (
                     <PaymentPendingCard
                       key={brandName}
@@ -80,7 +110,7 @@ const Payments = () => {
                       brandType={brandType}
                       status={status}
                       amount={amount}
-                      onPress={() => onPresPayItem(brandName)}
+                      onPress={() => onPresPayItem(id)}
                       buttonLabel={"PAY"}
                     />
                   )
@@ -109,12 +139,18 @@ const Payments = () => {
         payAll={onPressAllPay}
         show={showModal}
         onChange={onChangeModal}
+        headerText="Pay total of pending payment"
+        amountLabel="Amount of payment pending"
+        totalLabel="Total"
+        payAllLabel="PAY ALL"
       />
       <SpecificPaymentModal
-        payAll={onPressAllPay}
         show={showSpecificModal}
         onChange={onChangeSpecificModal}
-        itemName={itemName}
+        itemId={itemId}
+        payPending={payPending}
+        totalLabel="Total"
+        payLabel="Pay"
       />
     </>
   );

@@ -17,6 +17,9 @@ const PaymentsContainer: FC<PaymentsContainerProps> = ({
   children,
   balanceLabel,
   balanceAmount,
+  cardNumber,
+  year,
+  month,
 }) => {
   return (
     <Container>
@@ -31,12 +34,10 @@ const PaymentsContainer: FC<PaymentsContainerProps> = ({
           <BalanceAmountText>$ {balanceAmount}</BalanceAmountText>
         </BalanceContainer>
         <Spacing />
-        <PaymentsCard cardNumber="1234567891234567" month="05" year="24" />
+        <PaymentsCard cardNumber={cardNumber} month={year} year={month} />
         {Platform.OS === "ios" ? <Spacing small /> : <Spacing />}
       </SafeAreaView>
-      <Content>
-        {children}
-      </Content>
+      <Content>{children}</Content>
     </Container>
   );
 };

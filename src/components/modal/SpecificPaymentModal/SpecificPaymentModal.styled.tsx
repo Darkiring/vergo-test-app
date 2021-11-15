@@ -24,7 +24,7 @@ export const HeaderText = styled.Text`
   font-weight: bold;
 `;
 
-export const TotalLabel = styled.Text`
+export const Paragraph = styled.Text`
   font-size: ${rs(12)}px;
   text-transform: uppercase;
 `;
