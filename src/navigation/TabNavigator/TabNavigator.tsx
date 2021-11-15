@@ -3,6 +3,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Payments } from "../../modules/payments";
 import { Transactions } from "../../modules/transactions";
 import { IconImage } from "../../components/icon/Icon.styled";
+import { colors } from "../../utils/theme";
 
 const Tab = createBottomTabNavigator();
 
@@ -11,23 +12,29 @@ const TransactionsIcon = require("../../assets/icons/transactions-icons.png");
 
 function MyTabs() {
   return (
-    <Tab.Navigator>
+    <Tab.Navigator
+      tabBarOptions={{
+        activeTintColor: colors.primaryColor,
+        inactiveTintColor: colors.black,
+        showLabel: false,
+      }}
+    >
       <Tab.Screen
         name="Payments"
         component={Payments}
         options={{
-          tabBarLabel: "Payments",
-          tabBarIcon: () => <IconImage source={PaymentsIcon} />,
-          headerShown: false,
+          tabBarIcon: ({ focused }) => (
+            <IconImage hasFocus={focused} source={PaymentsIcon} />
+          ),
         }}
       />
       <Tab.Screen
         name="Transactions"
         component={Transactions}
         options={{
-          tabBarLabel: "Transactions",
-          tabBarIcon: () => <IconImage source={TransactionsIcon} />,
-          headerShown: false,
+          tabBarIcon: ({ focused }) => (
+            <IconImage hasFocus={focused} source={TransactionsIcon} />
+          ),
         }}
       />
     </Tab.Navigator>
