@@ -9,7 +9,7 @@ Test app made for Vergo Banking, allows you to make payments and view transactio
 ```yarn install ```
 - Run the project: 
 ```expo start ```
-- Scan the QR code on with Expo Go app your phone
+- Scan the QR code with Expo Go app your phone
 
 #### Example Videos:
 
