@@ -1,0 +1,5 @@
+export enum TYPEOFPAYMENT {
+  SENT = "SENT",
+  RECEIVED = "RECEIVED",
+  PENDING = "PENDING",
+}
