@@ -37,10 +37,10 @@ const Transactions = () => {
         <TransactionsListText>All Transactions</TransactionsListText>
         <Divider />
         {transactions.map(
-          ({ source, brandName, brandType, amount, status }) =>
+          ({ source, brandName, brandType, amount, status, id }) =>
             status !== TYPEOFPAYMENT.PENDING && (
               <RecentPaymentsCard
-                key={brandName}
+                key={id}
                 source={source}
                 brandName={brandName}
                 brandType={brandType}

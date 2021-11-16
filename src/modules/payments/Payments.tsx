@@ -104,7 +104,7 @@ const Payments = () => {
                 ({ source, brandName, brandType, amount, status, id }) =>
                   status === TYPEOFPAYMENT.PENDING && (
                     <PaymentPendingCard
-                      key={brandName}
+                      key={id}
                       source={source}
                       brandName={brandName}
                       brandType={brandType}
@@ -121,10 +121,10 @@ const Payments = () => {
           <PaymentsListText>Recent payments</PaymentsListText>
           <Divider />
           {payments.map(
-            ({ source, brandName, brandType, amount, status }) =>
+            ({ source, brandName, brandType, amount, status, id }) =>
               status !== TYPEOFPAYMENT.PENDING && (
                 <RecentPaymentsCard
-                  key={brandName}
+                  key={id}
                   source={source}
                   brandName={brandName}
                   brandType={brandType}

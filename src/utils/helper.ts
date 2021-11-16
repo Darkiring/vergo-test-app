@@ -1,3 +1,6 @@
+import "intl";
+import "intl/locale-data/jsonp/en";
+
 export const formatCardNumber = (cardNumber: string) => {
   return cardNumber.toString().replace(/\d{4}(?=.)/g, "$& ");
 };

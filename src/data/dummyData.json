@@ -19,86 +19,110 @@
             "id": 2
         },
         {
-            "brandName": "American Eagle 2",
-            "brandType": "Clothing Store",
+            "brandName": "Disney+",
+            "brandType": "Entertaiment",
             "status": "PENDING",
             "amount": 123.32,
-            "sourcePosition": 0,
+            "sourcePosition": 2,
             "id": 3
         },
         {
-            "brandName": "Airbnb 2",
-            "brandType": "Rental",
+            "brandName": "Macy's",
+            "brandType": "Clothing Store",
             "status": "PENDING",
             "amount": 213,
-            "sourcePosition": 1,
+            "sourcePosition": 3,
             "id": 4
         },
         {
-            "brandName": "American Eagle 3",
+            "brandName": "Nike",
             "brandType": "Clothing Store",
             "status": "PENDING",
             "amount": 123.32,
-            "sourcePosition": 0,
+            "sourcePosition": 4,
             "id": 5
         },
         {
-            "brandName": "Airbnb 3",
-            "brandType": "Rental",
+            "brandName": "Walmart",
+            "brandType": "Store",
             "status": "PENDING",
             "amount": 213,
-            "sourcePosition": 1,
+            "sourcePosition": 5,
             "id": 6
         }
     ],
     "transactions": [
         {
+            "brandName": "Airbnb",
+            "brandType": "Clothing Store",
+            "status": "SENT",
+            "amount": 453,
+            "sourcePosition": 1,
+            "id": 0
+        },
+        {
             "brandName": "American Eagle",
             "brandType": "Clothing Store",
-            "status": "RECEIVED",
-            "amount": 123.32,
+            "status": "SENT",
+            "amount": 1221.21,
             "sourcePosition": 0,
             "id": 1
         },
         {
-            "brandName": "Airbnb",
-            "brandType": "Rental",
-            "status": "SENT",
+            "brandName": "Pedro Jimenez",
+            "brandType": "Deposit",
+            "status": "RECEIVED",
             "amount": 213,
-            "sourcePosition": 1,
+            "sourcePosition": 6,
             "id": 2
         },
         {
-            "brandName": "American Eagle 2",
-            "brandType": "Clothing Store",
-            "status": "RECEIVED",
+            "brandName": "Disney+",
+            "brandType": "Entertaiment",
+            "status": "SENT",
             "amount": 123.32,
-            "sourcePosition": 0,
+            "sourcePosition": 2,
             "id": 3
         },
         {
-            "brandName": "Airbnb 2",
-            "brandType": "Rental",
-            "status": "SENT",
+            "brandName": "Maria Torres",
+            "brandType": "Deposit",
+            "status": "RECEIVED",
             "amount": 213,
-            "sourcePosition": 1,
+            "sourcePosition": 6,
             "id": 4
         },
         {
-            "brandName": "American Eagle 3",
+            "brandName": "Nike",
             "brandType": "Clothing Store",
-            "status": "RECEIVED",
+            "status": "SENT",
             "amount": 123.32,
-            "sourcePosition": 0,
+            "sourcePosition": 4,
             "id": 5
         },
         {
-            "brandName": "Airbnb 3",
-            "brandType": "Rental",
+            "brandName": "Walmart",
+            "brandType": "Store",
             "status": "SENT",
             "amount": 213,
-            "sourcePosition": 1,
+            "sourcePosition": 5,
             "id": 6
+        },
+        {
+            "brandName": "Loan",
+            "brandType": "Loans",
+            "status": "RECEIVED",
+            "amount": 21321,
+            "sourcePosition": 6,
+            "id": 7
+        },
+        {
+            "brandName": "Macy's",
+            "brandType": "Clothing Store",
+            "status": "SENT",
+            "amount": 1321,
+            "sourcePosition": 3,
+            "id": 8
         }
     ]
 }

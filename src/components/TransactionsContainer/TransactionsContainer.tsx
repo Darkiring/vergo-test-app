@@ -56,6 +56,7 @@ const TransactionsContainer: FC<TransactionsContainerProps> = ({
             </AvailableText>
           </CardContent>
         </HeaderContainer>
+        <Spacing />
       </SafeAreaView>
       <Content>{children}</Content>
     </Container>
